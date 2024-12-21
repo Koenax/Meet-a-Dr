@@ -1,3 +1,37 @@
+# Python files
+__pycache__/
+*.pyc
+*.pyo
+
+# Django-specific
+db.sqlite3
+settings.py
+
+# Environment variables
+.env
+.venv 
+.myenv
+
+# Static and media files
+media/
+static/
+
+# Log files
+*.log
+
+# IDE files
+.idea/
+.vscode/
+
+# Test-related files
+.pytest_cache/
+coverage/
+test_results.xml
+
+
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
