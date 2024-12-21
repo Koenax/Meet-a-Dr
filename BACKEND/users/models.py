@@ -26,7 +26,7 @@ class DoctorProfile(models.Model):
 
 # Appointment models goes here
 class Appointment(models.Model):
-    patient = models.ForeignKey(PatientProfile, related_name='patient_appointments')
-    doctor = models.ForeignKey(DoctorProfile, related_name='doctor_appointments')
+    patient = models.ForeignKey(PatientProfile, on_delete=models.CASCADE, related_name='patient_appointments')
+    doctor = models.ForeignKey(DoctorProfile, on_delete=models.CASCADE, related_name='doctor_appointments')
     date = models.DateField()
     time = models.TimeField()
