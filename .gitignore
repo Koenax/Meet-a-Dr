@@ -3,6 +3,8 @@ __pycache__/
 *.pyc
 *.pyo
 
+*.Zone.Identifier
+
 # Django-specific
 db.sqlite3
 settings.py
