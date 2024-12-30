@@ -6,6 +6,9 @@ import os
 import environ
 from datetime import timedelta
 from pathlib import Path
+import os
+from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,6 +82,22 @@ INSTALLED_APPS = [
     'doctorprofile',
     'patientfilesystem',
     'consultationsystem',
+# Client ID
+PAYPAL_CLIENT_ID=os.getenv("AXI6to_0Gv-d1RFj2NDnyY0XkjH-TCsts43GOxBHerqqRshwuLLbo8Gf1p6QM76P-eGjyKwi0FSl7PIe")
+
+# Paypal mode
+PAYPAL_MODE = os.getenv("PAYPAL_MODE", "sandbox") 
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.getenv("EOkaFUfUeXQzd0iG-kdQVYO5vNoBt2JQeViLwSQBdMxBfoAP5o4RrdyFDR3HTgTHszhe0JMiN3brIMxD")
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
+# App definition
+INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -94,6 +113,10 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     'dj_rest_auth.registration',
     'corsheaders',
+# My app(s)
+    'users',
+    'meetadoctor',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -104,6 +127,9 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'allauth.account.middleware.AccountMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -114,6 +140,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates']
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -148,6 +175,15 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
+# Database settings
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+# Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -163,10 +199,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
+# Internationalization
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -187,3 +223,16 @@ MEDIA_ROOT = BASE_DIR /'media'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+USE_L10N = True
+USE_TZ = True
+
+# Static files (CSS, JavaScript, images)
+STATIC_URL = '/static/'
+
+# Media files (uploaded content)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# app's settings, such as API keys, etc.
+
+
