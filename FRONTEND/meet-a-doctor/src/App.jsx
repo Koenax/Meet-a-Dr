@@ -6,19 +6,20 @@ import Feature from "./components/Feature";
 import Footer from "./components/Footer";
 import Registrations from "./pages/Registrations";
 import SignIn from "./pages/SignIn";
+import PatientDashboard from "./pages/PatientDashboard";
 
 const App = () => {
   return (
     <Router>
-      <Navbar />
-      <main className="overflow-hidden bg-black">
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="sticky top-0 z-50py-0 backdrop-blur-lg bg-black">
+        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 ">
           <Routes>
             {/* Route for the Home Page */}
             <Route
               path="/"
               element={
                 <>
+                  <Navbar />
                   <HeroSection />
                   <Description />
                   <Feature />
@@ -31,10 +32,11 @@ const App = () => {
 
             {/* Route for the Sign-In Page */}
             <Route path="/signin" element={<SignIn />} />
+            <Route path="/patientpage" element={<PatientDashboard />} />
           </Routes>
         </div>
+        <Footer />
       </main>
-      <Footer />
     </Router>
   );
 };

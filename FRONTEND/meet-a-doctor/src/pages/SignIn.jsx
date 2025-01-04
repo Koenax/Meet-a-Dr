@@ -30,7 +30,7 @@ const SignIn = () => {
     if (validate()) {
       console.log("Form submitted successfully:", formData);
       alert("Sign In successful!");
-      navigate("/homepage");
+      navigate("/patientpage");
     }
   };
 
