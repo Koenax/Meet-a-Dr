@@ -1,7 +1,6 @@
 import uuid
 from django.conf import settings
 from django.db import models
-from django.contrib.gis.db import models  # For handling geographic data
 from manageusers.models import User  # Importing the custom User model
 
 class DoctorProfile(models.Model):
@@ -21,7 +20,17 @@ class DoctorProfile(models.Model):
     province = models.CharField(max_length=255, blank=True, null=True)  # Province or state where the doctor practices
     hpcsa_registration_number = models.CharField(max_length=20, unique=True)  # Unique number for Health Professions Council registration
     is_verified = models.BooleanField(default=False)  # Indicates whether the profile is verified by admins
-    location = models.PointField(geography=True, blank=True, null=True)  # GeoDjango PointField to store geographical location
-    image = models.ImageField(upload_to='uploads/doctorprofile')
+    # location = models.PointField(geography=True, blank=True, null=True)  # GeoDjango PointField to store geographical location
+    image = models.ImageField(upload_to='uploads/doctorprofile') # Image of the practice to be uploaded
     created_at = models.DateTimeField(auto_now_add=True)  # Timestamp for when the profile was created
     updated_at = models.DateTimeField(auto_now=True)  # Timestamp for the last update to the profile
+
+    def image_url(self):
+        """
+        Combines the website's base URL, as defined in settings.WEBSITE_URL,
+        with the relative file path of the image stored in the `image` field.
+
+        Returns:
+            str: The full URL of the image.
+        """
+        return f'{settings.WEBSITE_URL}{self.image.url}'

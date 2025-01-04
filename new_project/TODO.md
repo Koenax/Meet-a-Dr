@@ -1,3 +1,6 @@
+# DOWNLOAD AND SETUP DOCKER AND DOCKER COMPOSE
+    - 
+
 set up Django project (done)
     - set venv and activate: source myenv/bin/activate
     - run django server: python manage.py runserver

@@ -8,7 +8,7 @@
 
     - Start the containers:
         - docker-compose up
-    -
+    - docker-compose up --build
 
 # START DJANGO PROJECT
     - Start a Django project
@@ -23,8 +23,6 @@
         * docker-compose exec web python manage.py migrate
 
 # git commit
-git add -p path/to/your/file.py
-git commit -m "Descriptive message for the second set of changes"
 
 # Apps
 ### Create usermanager app
