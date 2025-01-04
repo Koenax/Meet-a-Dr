@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import DoctorProfile
 from manageusers.serializers import UserDetailsSerializer
 
+
 class DoctorProfileListSerializer(serializers.ModelSerializer):
     """
     summarized view of a doctor's profile for listing or search results
