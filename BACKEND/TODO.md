@@ -33,3 +33,6 @@
 ### Create an app for registering doctor profiles
     - created doctor profile models
     - Created serializers
+
+### urls
+localhost/api/doctors
