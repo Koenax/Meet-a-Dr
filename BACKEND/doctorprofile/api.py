@@ -27,12 +27,9 @@ def doctorprofile_details(request, pk):
     """
     Get a specific doctor profile by ID
     """
-    try:
-        doctorprofile = DoctorProfile.objects.get(pk=pk)
-        serializer = DoctorProfileDetailsSerializer(doctorprofile, many=False)
-        return JsonResponse(serializer.data)
-    except DoctorProfile.DoesNotExist:
-        return JsonResponse({'error': 'Doctor profile not found'}, status=404)
+    doctorprofile = DoctorProfile.objects.get(pk=pk)
+    serializer = DoctorProfileDetailsSerializer(doctorprofile, many=False)
+    return JsonResponse(serializer.data)
 
 # API view for creating a new doctor profile
 @api_view(['POST', 'FILES'])
