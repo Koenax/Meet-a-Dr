@@ -30,12 +30,14 @@
     - Created serializers
     - Created superuser
       * python manage.py createsuperuser
-    - 
+    - created urls file
+
 ### Create an app for registering doctor profiles
     - created doctor profile models
     - Created serializers
     - created api views for the frontend
     - created urls file
+    - created forms.py file
 
 ### urls
 localhost/api/doctors/
