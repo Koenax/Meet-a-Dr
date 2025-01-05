@@ -73,6 +73,7 @@ REST_AUTH = {
 # Application definition
 
 INSTALLED_APPS = [
+    'manageusers',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
