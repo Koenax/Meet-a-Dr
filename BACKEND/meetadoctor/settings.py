@@ -23,7 +23,6 @@ DEBUG = bool(os.environ.get("DEBUG", default=0))
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
 # Use manageusers as the default model
-AUTH_USER_MODEL = 'manageusers.User'
 
 # SITE_ID specifies the ID of the current site in the database.
 SITE_ID = 1
@@ -74,8 +73,6 @@ REST_AUTH = {
 # Application definition
 
 INSTALLED_APPS = [
-    'manageusers',
-    'doctorprofile',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
