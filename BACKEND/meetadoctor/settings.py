@@ -64,6 +64,7 @@ CORS_ALLOWED_ORIGINS= [
     'http://127.0.0.1:8000'
 ]
 
+CORS_ALLOWED_ALL_ORIGINS = True
 
 REST_AUTH = {
     "USE_JWT": True,

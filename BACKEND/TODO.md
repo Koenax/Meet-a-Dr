@@ -29,10 +29,13 @@
     - Create user models
     - Created serializers
     - Created superuser
+      * python manage.py createsuperuser
 
 ### Create an app for registering doctor profiles
     - created doctor profile models
     - Created serializers
 
 ### urls
-localhost/api/doctors
+localhost/api/doctors/
+localhost/admin
+localhost/
