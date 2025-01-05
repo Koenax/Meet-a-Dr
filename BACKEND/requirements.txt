@@ -12,3 +12,4 @@ django-allauth==65.3.0
 dj-rest-auth==7.0.0
 django-cors-headers==4.6.0
 Pillow==11.0.0
+requests==2.32.3
