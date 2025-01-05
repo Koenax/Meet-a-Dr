@@ -35,7 +35,7 @@ def doctorprofile_details(request, pk):
         return JsonResponse({'error': 'Doctor profile not found'}, status=404)
 
 # API view for creating a new doctor profile
-@api_view(['POST'])
+@api_view(['POST', 'FILES'])
 def create_doctorprofile(request):
     # Handling file uploads
     form = DoctorProfileForm(request.POST, request.FILES)

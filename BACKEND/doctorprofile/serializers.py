@@ -33,4 +33,5 @@ class DoctorProfileDetailsSerializer(serializers.ModelSerializer):
             'services_offered',
             'category',
             'consultation_fee',
+            'image_url'
             )
