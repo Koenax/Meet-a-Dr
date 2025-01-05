@@ -31,6 +31,7 @@
     - Created superuser
       * python manage.py createsuperuser
     - created urls file
+    -  added to admin to register
 
 ### Create an app for registering doctor profiles
     - created doctor profile models
