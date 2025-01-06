@@ -7,8 +7,8 @@ from .forms import DoctorProfileForm
 
 # API view for listing all doctor profiles
 @api_view(['GET'])
-@authentication_classes([])  # If no authentication required
-@permission_classes([])  # If no permission required
+@authentication_classes([])
+@permission_classes([])
 def doctor_list(request):
     """
     Get a list of all doctor/practice profiles
@@ -39,8 +39,8 @@ def create_doctorprofile(request):
 
     if form.is_valid():
         doctorprofile = form.save(commit=False)
-        doctorprofile.user = request.user  # Assuming user is authenticated
-        doctorprofile.save()  # Save the doctor profile
+        doctorprofile.user = request.user
+        doctorprofile.save()
 
         return JsonResponse({'success': True})
     else:
