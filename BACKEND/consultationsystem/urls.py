@@ -7,4 +7,6 @@ urlpatterns = [
     
     path('bookings/patient/', api.get_patient_bookings, name='get_patient_bookings'),
     path('bookings/doctor/', api.get_doctor_bookings, name='get_doctor_bookings'),
+
+    path('bookings/<uuid:booking_id>/initiate-call/', api.initiate_call, name='initiate_call'),
 ]
