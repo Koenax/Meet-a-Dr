@@ -91,7 +91,7 @@ def create_diagnosis(request, patient_id):
     Create a new diagnosis for a patient
     """
     data = request.data
-    data['patient'] = patient_id  # Ensure patient is included in the data
+    data['patient'] = patient_id
     serializer = DiagnosisSerializer(data=data)
     if serializer.is_valid():
         serializer.save()
@@ -113,7 +113,7 @@ def create_test(request, patient_id):
     Create a new test for a patient
     """
     data = request.data
-    data['patient'] = patient_id  # Ensure patient is included in the data
+    data['patient'] = patient_id
     serializer = ScreeningTestSerializer(data=data)
     if serializer.is_valid():
         serializer.save()
