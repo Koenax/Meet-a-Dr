@@ -78,6 +78,7 @@ INSTALLED_APPS = [
     'manageusers',
     'doctorprofile',
     'patientfilesystem',
+    'consultationsystem',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
