@@ -27,10 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'manageusers.User'
 
 # Application definition
 
 INSTALLED_APPS = [
+    'manageusers',
+    'doctorprofile',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
