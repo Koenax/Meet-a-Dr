@@ -25,6 +25,7 @@ ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 # Use manageusers as the default model
 AUTH_USER_MODEL = 'manageusers.User'
 
+
 # SITE_ID specifies the ID of the current site in the database.
 SITE_ID = 1
 
@@ -141,6 +142,9 @@ DATABASES = {
         },
     }
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
