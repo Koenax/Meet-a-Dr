@@ -22,4 +22,12 @@ class CallConsultationSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = CallConsultation
-        fields = ['id', 'doctor', 'patient', 'appointment', 'meeting_id', 'call_type', 'status']
+        fields = (
+            'id',
+            'doctor',
+            'patient',
+            'appointment',
+            'meeting_id',
+            'call_type',
+            'status',
+        )
