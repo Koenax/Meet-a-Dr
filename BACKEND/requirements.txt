@@ -1,1 +1,45 @@
 Python == 3.13.1
+django == 5.1.4
+django-rest-framework == 3.15.2
+djangorestframework-simplejwt == 5.3.1
+pyjwt == 2.10.1
+django-allauth == 65.3.0
+dj-rest-auth == 7.0.0
+django-cors-headers == 4.6.0
+Pillow == 11.0.0
+
+certifi==2019.11.28
+chardet==3.0.4
+dbus-python==1.2.16
+distro==1.4.0
+distro-info===0.23ubuntu1
+greenlet==1.1.2
+idna==2.8
+mysqlclient==2.1.0
+numpy==1.15.0
+pep8==1.7.1
+psutil==5.9.0
+pycodestyle==2.8.0
+PyGObject==3.36.0
+python-apt==2.0.0+ubuntu0.20.4.7
+requests==2.22.0
+requests-unixsocket==0.2.0
+six==1.14.0
+SQLAlchemy==1.4.32
+ssh-import-id==5.10
+unattended-upgrades==0.1
+urllib3==1.25.8
+django>=4.2,<5
+djangorestframework>=3.14.0
+django-cors-headers>=4.0.0
+geopy>=2.3.0
+django-geoposition>=0.3.0
+django-rest-framework-gis>=0.17.0
+psycopg2-binary>=2.9.0
+django-postgis>=3.0.0
+django-allauth>=0.53.0
+djangorestframework-simplejwt>=5.2.2
+python-decouple>=3.8
+whitenoise>=6.5.0
+gunicorn>=21.0.0
+django-heroku>=0.4.0
