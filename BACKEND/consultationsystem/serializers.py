@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import BookingConsultation
+from .models import BookingConsultation, CallConsultation
 
 class BookingConsultationSerializer(serializers.ModelSerializer):
     """
@@ -15,3 +15,11 @@ class BookingConsultationSerializer(serializers.ModelSerializer):
             'consultation_type',
             'status',
         )
+
+class CallConsultationSerializer(serializers.ModelSerializer):
+    """
+    Serializer for creating and retrieving video/voice call sessions.
+    """
+    class Meta:
+        model = CallConsultation
+        fields = ['id', 'doctor', 'patient', 'appointment', 'meeting_id', 'call_type', 'status']
