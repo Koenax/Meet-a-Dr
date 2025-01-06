@@ -11,7 +11,7 @@ class BookingConsultationSerializer(serializers.ModelSerializer):
             'id',
             'patient',
             'doctor',
-            'timeslot',
+            'appointment_time',
             'consultation_type',
             'status',
         )

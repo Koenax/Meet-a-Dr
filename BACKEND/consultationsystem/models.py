@@ -17,7 +17,7 @@ class BookingConsultation(models.Model):
 
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     doctor = models.ForeignKey(DoctorProfile, on_delete=models.CASCADE)
-    timeslot = models.DateTimeField()
+    appointment_time = models.DateTimeField()
     consultation_type = models.CharField(max_length=20, choices=CONSULTATION_CHOICES)
     status = models.CharField(max_length=20, default='pending', choices=[('pending', 'Pending'), ('confirmed', 'Confirmed'), ('canceled', 'Canceled')])
     created_at = models.DateTimeField(auto_now_add=True)
