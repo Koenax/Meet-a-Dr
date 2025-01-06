@@ -77,6 +77,7 @@ REST_AUTH = {
 INSTALLED_APPS = [
     'manageusers',
     'doctorprofile',
+    'patientfilesystem',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
