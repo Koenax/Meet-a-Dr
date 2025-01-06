@@ -37,3 +37,14 @@ class BookingConsultation(models.Model):
 
         # Sending email to doctor
         send_mail(subject, message, 'noreply@meetadoctor.com', [self.doctor.user.email])
+
+class CallConsultation(models.Model):
+    """
+    Represents a call room for either voice or video consultation.
+    """
+    doctor = models.ForeignKey(DoctorProfile, on_delete=models.CASCADE)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    appointment = models.ForeignKey('BookingConsultation', on_delete=models.CASCADE)
+    meeting_id = models.CharField(max_length=100, unique=True)
+    call_type = models.CharField(max_length=10, choices=[('voice', 'Voice'), ('video', 'Video')])
+    status = models.CharField(max_length=20, choices=[('pending', 'Pending'), ('active', 'Active'), ('completed', 'Completed')], default='pending')

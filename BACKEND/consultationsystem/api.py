@@ -1,9 +1,11 @@
 from django.http import JsonResponse
+from django.utils.crypto import get_random_string
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from doctorprofile.models import DoctorProfile
-from .models import BookingConsultation
+from .models import BookingConsultation, CallConsultation
 from .serializers import BookingConsultationSerializer
+
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])  # Ensure the user is authenticated
@@ -87,3 +89,33 @@ def get_doctor_bookings(request):
     bookings = BookingConsultation.objects.filter(doctor=doctor)
     serializer = BookingConsultationSerializer(bookings, many=True)
     return JsonResponse({'data': serializer.data}, status=200)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def initiate_call(request, booking_id):
+    """
+    Initiate a video/voice call for a confirmed booking.
+    
+    This view creates a call room (meeting) for the client and doctor to join.
+    """
+    try:
+        booking = BookingConsultation.objects.get(id=booking_id)
+        
+        if booking.status != 'confirmed':
+            return JsonResponse({'error': 'Booking not confirmed'}, status=400)
+        
+        meeting_id = get_random_string(10)
+
+        call_room = CallConsultation.objects.create(
+            doctor=booking.doctor,
+            patient=booking.patient,
+            appointment=booking,
+            meeting_id=meeting_id,
+            call_type=booking.consultation_type,
+            status='active'
+        )
+        
+        return JsonResponse({'meeting_id': meeting_id, 'call_type': call_room.call_type}, status=200)
+
+    except BookingConsultation.DoesNotExist:
+        return JsonResponse({'error': 'Booking not found'}, status=404)
