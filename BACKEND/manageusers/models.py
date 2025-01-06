@@ -8,7 +8,7 @@ class CustomUserManager(UserManager):
     Manager for the User model with methods for creating users and superusers.
     """
 
-    def _create_user(self, name, email, password, **extra_fields):
+    def _create_user(self, email, password=None, name=None, **extra_fields):
         """
         Helper method that performs the actual creation of a User object with the provided details.
         """
@@ -21,23 +21,23 @@ class CustomUserManager(UserManager):
 
         return user
 
-    def create_user(self, name=None, email=None, password=None, **extra_fields):
+    def create_user(self, email, password=None, name=None, **extra_fields):
         """
         Create and return a regular user with an email, username, and password.
         """
         extra_fields.setdefault('is_staff', False)
         extra_fields.setdefault('is_superuser', False)
 
-        return self._create_user(email, name, password, **extra_fields)
+        return self._create_user(email, password, name, **extra_fields)
 
-    def create_superuser(self, name=None, email=None, password=None, **extra_fields):
+    def create_superuser(self, email, password=None, name=None, **extra_fields):
         """
-        Create and return a superuser with an email, username, and password.
+        Create and return a superuser with an email, name, and password.
         """
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
 
-        return self._create_user(email, name, password, **extra_fields)
+        return self._create_user(email, password, name, **extra_fields)
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -51,11 +51,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     phone_number = models.CharField(max_length=15, blank=True)
 
     is_active = models.BooleanField(default=True)
-    is_superuser = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
 
     date_joined = models.DateField(auto_now_add=True)
-    last_login = models.DateField(blank=True, null=True)
+    last_login = models.DateTimeField(blank=True, null=True)
 
     # Add groups and user_permissions fields
     groups = models.ManyToManyField(
@@ -71,9 +70,9 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     objects = CustomUserManager()
 
-    USERNAME_FIELD = 'email'  # Use email as the username field
+    USERNAME_FIELD = 'email'
     EMAIL_FIELD = 'email'
-    REQUIRED_FIELDS = ['name',]  # Fields required for creating a user
+    REQUIRED_FIELDS = ['name',]
 
     def avatar_url(self):
         if self.avatar:
