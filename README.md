@@ -3,8 +3,9 @@ ALX FINAL PROJECT
 
 
 # URLs
-http://localhost:8000 runs coreectly at 7:19
-http://localhost:8000/api/doctors/ runs correctly at 7:19
+http://localhost:8000 -runs
+http://localhost:8000/admin - still cant login
+http://localhost:8000/api/doctors/ - runs 
 
 
 # FEATURES
