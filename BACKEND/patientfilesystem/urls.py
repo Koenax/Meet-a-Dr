@@ -1,9 +1,9 @@
 from django.urls import path
-from . import api
+from . import api  # Assuming api refers to function-based views
 
 urlpatterns = [
     # Patient Endpoints
-    path('patients/', api.patient_list, name='patient_list'),  # List all patients
+    path('', api.patient_list, name='patient_list'),  # List all patients
     path('patients/create/', api.create_patient, name='create_patient'),  # Create a new patient
     path('patients/<uuid:pk>/', api.patient_details, name='patient_details'),  # Retrieve a specific patient profile
     
