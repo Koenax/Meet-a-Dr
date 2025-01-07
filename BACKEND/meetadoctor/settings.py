@@ -114,7 +114,6 @@ INSTALLED_APPS = [
     'corsheaders',
 # My app(s)
     'users',
-    'rest_framework',
 ]
 
 MIDDLEWARE = [
