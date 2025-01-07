@@ -84,12 +84,7 @@ PAYPAL_CLIENT_ID=os.getenv("AXI6to_0Gv-d1RFj2NDnyY0XkjH-TCsts43GOxBHerqqRshwuLLb
 PAYPAL_MODE = os.getenv("PAYPAL_MODE", "sandbox") 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("EOkaFUfUeXQzd0iG-kdQVYO5vNoBt2JQeViLwSQBdMxBfoAP5o4RrdyFDR3HTgTHszhe0JMiN3brIMxD")
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+SECRET_KEY_PAYPAL = os.getenv("EOkaFUfUeXQzd0iG-kdQVYO5vNoBt2JQeViLwSQBdMxBfoAP5o4RrdyFDR3HTgTHszhe0JMiN3brIMxD")
 
 # App definition
 INSTALLED_APPS = [
@@ -168,17 +163,6 @@ DATABASES = {
         },
     }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
-
-# Database settings
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
