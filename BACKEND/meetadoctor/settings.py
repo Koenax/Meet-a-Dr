@@ -77,11 +77,6 @@ REST_AUTH = {
 
 # Application definition
 
-INSTALLED_APPS = [
-    'manageusers',
-    'doctorprofile',
-    'patientfilesystem',
-    'consultationsystem',
 # Client ID
 PAYPAL_CLIENT_ID=os.getenv("AXI6to_0Gv-d1RFj2NDnyY0XkjH-TCsts43GOxBHerqqRshwuLLbo8Gf1p6QM76P-eGjyKwi0FSl7PIe")
 
@@ -98,6 +93,10 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # App definition
 INSTALLED_APPS = [
+    'manageusers',
+    'doctorprofile',
+    'patientfilesystem',
+    'consultationsystem',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
