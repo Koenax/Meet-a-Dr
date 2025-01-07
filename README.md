@@ -1,6 +1,14 @@
 # Meet-a-Dr
 ALX FINAL PROJECT
 
+
+# URLs
+http://localhost:8000 -runs
+http://localhost:8000/admin - works fine
+http://localhost:8000/api/doctors/ - runs 
+http://localhost:8000/api/auth/ - can be connected
+
+
 # FEATURES
 ### Website (guests)
     - Homepage
