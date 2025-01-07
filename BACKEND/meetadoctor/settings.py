@@ -114,7 +114,6 @@ INSTALLED_APPS = [
     'corsheaders',
 # My app(s)
     'users',
-    'meetadoctor',
     'rest_framework',
 ]
 
