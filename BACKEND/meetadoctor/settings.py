@@ -77,15 +77,6 @@ REST_AUTH = {
 
 # Application definition
 
-# Client ID
-PAYPAL_CLIENT_ID=os.getenv("AXI6to_0Gv-d1RFj2NDnyY0XkjH-TCsts43GOxBHerqqRshwuLLbo8Gf1p6QM76P-eGjyKwi0FSl7PIe")
-
-# Paypal mode
-PAYPAL_MODE = os.getenv("PAYPAL_MODE", "sandbox") 
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY_PAYPAL = os.getenv("EOkaFUfUeXQzd0iG-kdQVYO5vNoBt2JQeViLwSQBdMxBfoAP5o4RrdyFDR3HTgTHszhe0JMiN3brIMxD")
-
 # App definition
 INSTALLED_APPS = [
     'manageusers',
@@ -107,8 +98,6 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     'dj_rest_auth.registration',
     'corsheaders',
-# My app(s)
-    'users',
 ]
 
 MIDDLEWARE = [
