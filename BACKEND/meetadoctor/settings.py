@@ -8,7 +8,6 @@ from datetime import timedelta
 from pathlib import Path
 import os
 from pathlib import Path
-from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,27 +76,12 @@ REST_AUTH = {
 
 # Application definition
 
+# App definition
 INSTALLED_APPS = [
     'manageusers',
     'doctorprofile',
     'patientfilesystem',
     'consultationsystem',
-# Client ID
-PAYPAL_CLIENT_ID=os.getenv("AXI6to_0Gv-d1RFj2NDnyY0XkjH-TCsts43GOxBHerqqRshwuLLbo8Gf1p6QM76P-eGjyKwi0FSl7PIe")
-
-# Paypal mode
-PAYPAL_MODE = os.getenv("PAYPAL_MODE", "sandbox") 
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("EOkaFUfUeXQzd0iG-kdQVYO5vNoBt2JQeViLwSQBdMxBfoAP5o4RrdyFDR3HTgTHszhe0JMiN3brIMxD")
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-
-# App definition
-INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -113,10 +97,6 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     'dj_rest_auth.registration',
     'corsheaders',
-# My app(s)
-    'users',
-    'meetadoctor',
-    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -139,8 +119,7 @@ ROOT_URLCONF = 'meetadoctor.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'DIRS': [BASE_DIR / 'templates']
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -171,17 +150,6 @@ DATABASES = {
         },
     }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
-
-# Database settings
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
