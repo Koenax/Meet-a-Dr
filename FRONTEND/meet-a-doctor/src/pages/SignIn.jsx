@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../api/axiosInstance";
+import { User } from "lucide-react";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -25,29 +27,29 @@ const SignIn = () => {
     return Object.keys(tempErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
-      const storedUser = JSON.parse(localStorage.getItem("user"));
+      try{
+        const response = await axiosInstance.post("/api/auth/login/", formData);
+        const { User, token } = response.data;
 
-      if (
-        storedUser &&
-        storedUser.email === formData.email &&
-        storedUser.password === formData.password
-      ) {
-        const userRole = storedUser.role;
-        console.log("Sign-in successful:", storedUser);
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(user));
 
-        // Redirect to the appropriate dashboard
+        const userRole = user.role;
         if (userRole === "doctor") {
           navigate("/doctor-dashboard");
         } else {
           navigate("/patient-dashboard");
         }
-      } else {
-        setErrors({ ...errors, form: "Invalid email or password." });
+      } catch (error) {
+        setErrors({
+          ...errors,
+          form: error.response?.data?.message || "Login failed. Please try agian.",
+        });
       }
-    }
+    }  
   };
 
   const handleGoogleSignIn = () => {

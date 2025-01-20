@@ -1,3 +1,5 @@
+version: '2.2'  # Change the version to a supported one
+
 services:
   web:
     build: .
@@ -22,7 +24,8 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     env_file:
-      - .env  # Load environment variables from the .env file
+      - .env
 
 volumes:
-  postgres_data:  # Declare a volume for persisting PostgreSQL data
+  postgres_data:
+

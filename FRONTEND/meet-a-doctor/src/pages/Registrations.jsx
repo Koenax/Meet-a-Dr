@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../api/axiosInstance";
 
 const Registration = () => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ const Registration = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formData.email || !formData.password || (formData.role === "doctor" && !formData.specialty)) {
@@ -31,13 +32,16 @@ const Registration = () => {
       return;
     }
 
-    console.log("Form Submitted:", formData);
+    try {
+      const response = await axiosInstance.post("/api/auth/register/", formData);
 
-    // Store user data in localStorage (simulate backend response)
-    localStorage.setItem("user", JSON.stringify(formData));
+      alert("Registration successful! Please sign in.");
+      navigate("/signin");
+    } catch (err) {
+      setError(err.response?.data?.message || "Registration failed. Please try again.");
+      console.error("Registration Error:", err);
+    }
 
-  alert("Registration successful! Please sign in.");
-  navigate("/signin");
   };
 
   return (
