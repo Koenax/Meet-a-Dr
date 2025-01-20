@@ -1,10 +1,20 @@
 import NavbarPatient from "../components/NavbarPatients";
 import Sidebar from "../components/Sidebar";
+import ConnectModal from "../components/ConnectModal";
 import doctor_1 from "../assets/doctor_1.jpeg";
 import doctor_2 from "../assets/doctor_2.jpeg";
 import doctor_3 from "../assets/doctor_3.jpeg";
+import { useState } from "react";
 
 const PatientDashboard = () => {
+  const [selectedDoctor, setSelectedDoctor] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleConnect = (doctor) => {
+    setSelectedDoctor(doctor);
+    setIsModalOpen(true);
+  };
+
   return (
     <div className="h-screen flex flex-col">
       <NavbarPatient />
@@ -25,7 +35,10 @@ const PatientDashboard = () => {
                 <p className="text-sm">Currently working at: Heart Care Center</p>
                 <p className="text-sm">Experience: 10 years</p>
               </div>
-              <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-auto">
+              <button 
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-auto"
+              onClick={() => handleConnect("Dr. Alice Smith")}
+              >
                 Connect
               </button>
             </div>
@@ -43,7 +56,10 @@ const PatientDashboard = () => {
                 <p className="text-sm">Currently working at: NeuroHealth Clinic</p>
                 <p className="text-sm">Experience: 8 years</p>
               </div>
-              <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-auto">
+              <button 
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-auto"
+              onClick={() => handleConnect("Dr. Jonh Doe")}
+              >
                 Connect
               </button>
             </div>
@@ -61,13 +77,22 @@ const PatientDashboard = () => {
                 <p className="text-sm">Currently working at: Kids Health Hospital</p>
                 <p className="text-sm">Experience: 12 years</p>
               </div>
-              <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-auto">
+              <button 
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-auto"
+              onClick={() => handleConnect("Dr. Emily Brown")}
+              >
                 Connect
               </button>
             </div>
           </div>
         </main>
       </div>
+      {isModalOpen && (
+        <ConnectModal
+        doctor={selectedDoctor}
+        onClose={() => setIsModalOpen(false)}
+        />
+      )}
     </div>
   );
 };

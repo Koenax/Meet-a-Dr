@@ -7,6 +7,8 @@ import Footer from "./components/Footer";
 import Registrations from "./pages/Registrations";
 import SignIn from "./pages/SignIn";
 import PatientDashboard from "./pages/PatientDashboard";
+import DoctorDashboard from "./pages/DoctorDashboard";
+import DoctorProfile from "./pages/DoctorProfile";
 
 const App = () => {
   return (
@@ -32,7 +34,10 @@ const App = () => {
 
             {/* Route for the Sign-In Page */}
             <Route path="/signin" element={<SignIn />} />
-            <Route path="/patientpage" element={<PatientDashboard />} />
+            <Route path="/patient-dashboard" element={<PatientDashboard />} />
+            <Route path="/doctor-dashboard" element={<DoctorDashboard />} />
+            <Route path="/doctor-profile" element={<DoctorProfile />} />
+
           </Routes>
         </div>
         <Footer />

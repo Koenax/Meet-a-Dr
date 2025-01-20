@@ -28,9 +28,25 @@ const SignIn = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      console.log("Form submitted successfully:", formData);
-      alert("Sign In successful!");
-      navigate("/patientpage");
+      const storedUser = JSON.parse(localStorage.getItem("user"));
+
+      if (
+        storedUser &&
+        storedUser.email === formData.email &&
+        storedUser.password === formData.password
+      ) {
+        const userRole = storedUser.role;
+        console.log("Sign-in successful:", storedUser);
+
+        // Redirect to the appropriate dashboard
+        if (userRole === "doctor") {
+          navigate("/doctor-dashboard");
+        } else {
+          navigate("/patient-dashboard");
+        }
+      } else {
+        setErrors({ ...errors, form: "Invalid email or password." });
+      }
     }
   };
 
@@ -50,6 +66,7 @@ const SignIn = () => {
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded shadow-md">
       <h1 className="text-2xl font-bold text-center mb-6">Sign In</h1>
+      {errors.form && <p className="text-red-500 text-center mb-4">{errors.form}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Email */}
         <div>

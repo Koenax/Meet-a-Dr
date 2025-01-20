@@ -32,7 +32,12 @@ const Registration = () => {
     }
 
     console.log("Form Submitted:", formData);
-    navigate("/signin");
+
+    // Store user data in localStorage (simulate backend response)
+    localStorage.setItem("user", JSON.stringify(formData));
+
+  alert("Registration successful! Please sign in.");
+  navigate("/signin");
   };
 
   return (
