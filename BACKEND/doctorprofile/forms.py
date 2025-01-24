@@ -1,6 +1,7 @@
 from django import forms
 from .models import DoctorProfile
 
+# Doctor's profile form
 class DoctorProfileForm(forms.ModelForm):
     class Meta:
         model = DoctorProfile
