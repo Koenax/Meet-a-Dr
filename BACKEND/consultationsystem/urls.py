@@ -1,6 +1,7 @@
 from django.urls import path
 from . import api
 
+# URL patterns for the booking-related API endpoints in the Django Consultation System
 urlpatterns = [
     path('', api.create_booking, name='create_booking'),
     path('bookings/<uuid:pk>/confirm/', api.confirm_booking, name='confirm_booking'),
