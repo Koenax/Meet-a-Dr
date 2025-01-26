@@ -29,7 +29,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application
 COPY . /djangobackend/
-
+# Sets the entry point to the entrypoint.sh script and runs the Django development server.
 ENTRYPOINT [ "/djangobackend/entrypoint.sh" ]
 
 # Expose the port that the app will run on
