@@ -110,10 +110,12 @@ Admins can:
 - **Admin Panel**: [http://localhost:8000/admin](http://localhost:8000/admin) — Fully functional for admin users ✅
 - **Doctors API**: [http://localhost:8000/api/doctors/](http://localhost:8000/api/doctors/) — Endpoint for accessing doctor data 💻
 - **API Authentication**: [http://localhost:8000/api/auth/](http://localhost:8000/api/auth/) — Endpoint for user authentication 🔌
+- **Demo video**: https://www.youtube.com/watch?v=IKDX1qDsG8s. 
 
 ## Future Improvements 🚀
 
 - **Search Functionality**: Implement advanced search options to filter doctors based on specialties, availability, and ratings 🔍
+- **Add Payment Feature** : Implement advanced online payment system for patients.✔✔✔✔✔✔
 - **Messaging System**: Add real-time messaging for communication between clients and doctors 💬
 - **Appointment Scheduling**: Enable clients to schedule, reschedule, and cancel appointments directly 📅
 - **Doctor Ratings & Reviews**: Introduce a rating system for clients to leave feedback on doctors 🌟
