@@ -1,17 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../api/axiosInstance";
-import { User } from "lucide-react";
 
 const SignIn = () => {
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,39 +26,21 @@ const SignIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
-      try{
+      setLoading(true);
+      try {
         const response = await axiosInstance.post("/api/auth/login/", formData);
-        const { User, token } = response.data;
-
-        localStorage.setItem("token", token);
-        localStorage.setItem("user", JSON.stringify(user));
-
-        const userRole = user.role;
-        if (userRole === "doctor") {
-          navigate("/doctor-dashboard");
-        } else {
-          navigate("/patient-dashboard");
-        }
+        // Save token or session info if applicable
+        // localStorage.setItem("authToken", response.data.token);
+        navigate("/patient-dashboard");
       } catch (error) {
         setErrors({
           ...errors,
-          form: error.response?.data?.message || "Login failed. Please try agian.",
+          form: error.response?.data?.message || "Login failed. Please try again.",
         });
+      } finally {
+        setLoading(false);
       }
-    }  
-  };
-
-  const handleGoogleSignIn = () => {
-    console.log("Google Sign-In clicked");
-    // Implement Google Sign-In logic here
-  };
-
-  const handleForgotPassword = () => {
-    navigate("/forgot-password");
-  };
-
-  const handleCreateAccount = () => {
-    navigate("/register");
+    }
   };
 
   return (
@@ -106,7 +84,7 @@ const SignIn = () => {
         <div className="text-right">
           <button
             type="button"
-            onClick={handleForgotPassword}
+            onClick={() => navigate("/forgot-password")}
             className="text-blue-600 hover:underline text-sm"
           >
             Forgot Password?
@@ -117,25 +95,12 @@ const SignIn = () => {
         <div className="flex justify-center">
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700 text-lg"
+            className={`w-full bg-blue-600 text-white py-3 rounded text-lg ${
+              loading ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-700"
+            }`}
+            disabled={loading}
           >
-            Sign In
-          </button>
-        </div>
-
-        {/* Google Sign-In */}
-        <div className="flex justify-center mt-4">
-          <button
-            type="button"
-            onClick={handleGoogleSignIn}
-            className="w-full bg-red-600 text-white py-3 rounded hover:bg-red-700 text-lg flex items-center justify-center space-x-2"
-          >
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
-              alt="Google Logo"
-              className="w-6 h-6"
-            />
-            <span>Sign in with Google</span>
+            {loading ? "Signing In..." : "Sign In"}
           </button>
         </div>
       </form>
@@ -145,7 +110,7 @@ const SignIn = () => {
         <p className="text-sm">
           Don't have an account?{" "}
           <button
-            onClick={handleCreateAccount}
+            onClick={() => navigate("/register")}
             className="text-blue-600 hover:underline"
           >
             Create an account
