@@ -2,6 +2,8 @@ Meet-a-Dr 💼👩‍⚕️👨‍⚕️
 
 ALX Final Project 🎓
 
+![Screenshot 2025-01-26 215848](https://github.com/user-attachments/assets/b4a4c6e0-2084-4f76-8a35-144f77773381)
+
 Overview 📝
 
 Meet-a-Dr is a platform designed to connect clients seeking medical services with doctors offering those services. This project includes various features for guests, logged-in users seeking services (clients), logged-in users offering services (doctors), and administrators.
