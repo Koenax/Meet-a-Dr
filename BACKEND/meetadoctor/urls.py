@@ -13,7 +13,7 @@ from django.http import HttpResponse
 def home_view(request):
     return HttpResponse(" WELCOME TO MEET A DOCTOR")
 
-
+# URL configuration for the Meet A Doctor project
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/doctors/', include('doctorprofile.urls')),

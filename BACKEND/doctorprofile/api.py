@@ -5,7 +5,7 @@ from .serializers import DoctorProfileListSerializer, DoctorProfileDetailsSerial
 from .forms import DoctorProfileForm
 
 
-# API view for listing all doctor profiles
+# API view for listing all doctor profilles
 @api_view(['GET'])
 @authentication_classes([])
 @permission_classes([])

@@ -19,6 +19,7 @@ class UserCreateSerializer(serializers.ModelSerializer):
     handles password validation and creation
     """
     password = serializers.CharField(write_only=True, min_length=8, style={'input_type':'password'})
+# Ensures that the password is write-only and has a minimum length of 8 characters.
 
     class Meta:
         model = User

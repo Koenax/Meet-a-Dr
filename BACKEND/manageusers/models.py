@@ -39,7 +39,7 @@ class CustomUserManager(UserManager):
 
         return self._create_user(email, password, name, **extra_fields)
 
-
+# Utilizes UUID as the primary key and supports permissions and groups.
 class User(AbstractBaseUser, PermissionsMixin):
     """
     User model with additional fields like email and profile.

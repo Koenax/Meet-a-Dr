@@ -3,7 +3,7 @@
 import django.db.models.deletion
 from django.db import migrations, models
 
-
+# class migrations
 class Migration(migrations.Migration):
 
     dependencies = [

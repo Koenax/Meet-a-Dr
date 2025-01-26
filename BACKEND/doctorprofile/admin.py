@@ -1,5 +1,5 @@
 from django.contrib import admin
 from .models import DoctorProfile
 
-# Register your models here.
+#  models feature for admin.siti register .
 admin.site.register(DoctorProfile)

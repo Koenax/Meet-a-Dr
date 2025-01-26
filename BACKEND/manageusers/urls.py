@@ -10,7 +10,7 @@ def auth_root_view(request):
         "message": "API Authentication Endpoints",
         "endpoints": [
             "/register/ - Register a new user",
-            "/login/ - Log in a user",
+            "/login/ - Log in a user", # LoginView: Endpoint for user login.
             "/logout/ - Log out the user",
             "/user/ - Get user details",
             "/token/verify/ - Verify a JWT token",

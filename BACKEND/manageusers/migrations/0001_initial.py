@@ -39,3 +39,4 @@ class Migration(migrations.Migration):
             ],
         ),
     ]
+#utilizes a custom user manager for managing user intances.
